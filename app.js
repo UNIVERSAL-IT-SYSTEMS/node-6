@@ -6,6 +6,7 @@ var
   logger = require('morgan'),
   cookieParser = require('cookie-parser'),
   bodyParser = require('body-parser'),
+  hbs = require('hbs'),
   routes = require('./routes/index'),
   talks = require('./routes/talks');
 
@@ -13,8 +14,10 @@ var app = express();
 app.set('port', process.env.PORT || 3000);
 
 // view engine setup
+app.set('view options', { layout: 'layout' });
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'hjs');
+app.set('view engine', 'html');
+app.engine('html', require('hbs').__express);
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));

@@ -1,6 +1,6 @@
 module.exports = {
 	couchdb: {
-    host: '127.0.0.1',
+    host: 'http://127.0.0.1',
     port: 5984
   }
 };
