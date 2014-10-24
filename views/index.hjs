@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>{{ title }}</title>
+  <link rel='stylesheet' href='/stylesheets/bootstrap.min.css' />
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <script src="//use.typekit.net/mqp5ibc.js"></script>
+  <script>try{Typekit.load();}catch(e){}</script>
+  <meta name="description" content="Node.js Barcelona User Group">
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8">
+
+</head>
+
+<body>
+  <div class="site-wrapper">
+
+      <div class="site-wrapper-inner">
+
+        <div class="cover-container">
+
+          <div class="inner cover">
+            <img id="logo" src="/images/node_logo.svg" />
+            <h1>Node.js Barcelona</h1>
+            <h2>coming soon...</h2>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+</body>
+
+</html>
