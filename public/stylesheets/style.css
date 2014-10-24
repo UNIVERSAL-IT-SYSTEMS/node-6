@@ -20,6 +20,14 @@ a:hover {
 }
 
 
+input {
+  line-height: 15px;
+  padding: 15px;
+  color: rgb(43, 43, 43);
+}
+input[type="submit"] {
+  padding: 19px;
+}
 /*
  * Base structure
  */
@@ -61,6 +69,7 @@ body {
 /* Padding for spacing */
 .inner {
   padding: 30px;
+  margin-bottom: 50px;
 }
 
 
