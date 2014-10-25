@@ -1,28 +1,31 @@
-<article class="event">
+<article class="col-xs-6 talk">
   <header class="speaker">
-		{{#if speaker}}
-      {{#if speaker.portrait}}
-			   <div class="speaker-portrait" style="background-image: url({{speaker.portrait}});"></div>
-      {{else }}
-        <span class="fa-stack fa-5x">
-          <i class="fa fa-question fa-stack-1x"></i>
-        </span>
-      {{/if}}
-			<span class="speaker-name"><a href="http://twitter.com/{{speaker.twitter}}">{{speaker.name}}</a></span>
-		{{else }}
-			<span class="fa-stack fa-5x">
-				<i class="fa fa-square-o fa-stack-2x"></i>
-				<i class="fa fa-question fa-stack-1x"></i>
-			</span>
-		{{/if}}
-	</header>
-	{{#if title}}
-		<div class="meta">
-			Language: {{language}} | Level: {{level}}
-		</div>
-		<h3>{{title}}</h3>
-		<p>{{description}}</p>
-	{{else}}
-	<p><strong>This slot could be yours! Submit your talk now.</strong>  You did some crazy stuff with JavaScript? You want to show it to the community? Drop us a line on your topic on <a href="https://twitter.com/bcnjs">Twitter</a> or to <a href="https://plus.google.com/u/0/communities/115705669406517039298">Google+</a>.</p>
-	{{/if}}
+    {{#if speaker}}
+    <a href="/speaker/{{speaker._id}}.html">
+      <div class="hexagon hexagon-center member-portrait" style="background-image: url({{speaker.portrait}});">
+        <div class="hexTop"></div>
+        <div class="hexBottom"></div>
+      </div>
+    </a>
+    <div class="member-profile text-center">
+      <span class="member-name">{{title}}</span>
+      <br />
+      <i class="fa fa-twitter"></i>  <a href="http://twitter.com/{{twitter}}">{{twitter}}</a>
+    </div>
+    {{else }}
+    <div class="hexagon hexagon-center member-portrait" style="background-image: url(/images/you.png);">
+      <div class="hexTop"></div>
+      <div class="hexBottom"></div>
+    </div>
+    {{/if}}
+  </header>
+  {{#if title}}
+  <div class="meta">
+    Language: {{language}} | Level: {{level}}
+  </div>
+  <h3>{{title}}</h3>
+  <p>{{description}}</p>
+  {{else}}
+  <p><strong>This slot could be yours! Submit your talk now.</strong> You did some crazy stuff with JavaScript? You want to show it to the community? Drop us a line on your topic on <a href="https://twitter.com/bcnjs">Twitter</a> or to <a href="https://plus.google.com/u/0/communities/115705669406517039298">Google+</a>.</p>
+  {{/if}}
 </article>

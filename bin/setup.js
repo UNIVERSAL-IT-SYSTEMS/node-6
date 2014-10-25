@@ -29,7 +29,7 @@ var talks = [{
   "speaker": {
     "twitter": "bpedro",
     "name": "Bruno Pedro",
-    "portrait": "https://pbs.twimg.com/profile_images/378800000473642830/2f20ecdcd1ec41452b174d04a69e87ee.jpeg"
+    "portrait": "https://pbs.twimg.com/profile_images/516659188022255616/_6Sf3GvN.jpeg"
   },
   "level": "Intermediate",
   "language": "en",
@@ -37,21 +37,6 @@ var talks = [{
   "slides": "http://www.slideshare.net/bpedro/api-code-generation",
   "video": "https://vimeo.com/87488883",
   "description": "I'll show you how to generate a nodejs API consumer by using the API Blueprint (http://apiblueprint.org/) to generate code from a Postman (http://www.getpostman.com/) collection."
-}, {
-  "type": "talk",
-  "event": "first_event",
-  "title": "Backbone, Marionette and other puppets",
-  "speaker": {
-    "twitter": "ainformatico",
-    "name": "Alejandro El Informatico",
-    "portrait": ""
-  },
-  "level": "Intermediate",
-  "language": "es/en",
-  "git": "",
-  "slides": "http://www.alejandroelinformatico.com/slideshows/en/marionette-js/#/",
-  "video": "https://vimeo.com/89510571",
-  "description": "Now that you know Backbone.js is time to become a puppeteer and use Marionette.js, a composite application library for Backbone.js that aims to simplify the construction of large scale Javascript applications."
 }];
 
 nano.db.destroy('nodebcn', function () {});

@@ -1,0 +1,80 @@
+@import 'mixins';
+
+/*
+ * Globals
+ */
+
+/* Links */
+a,
+a:focus,
+a:hover {
+  color: #fff;
+}
+
+/* Custom default button */
+.btn-default,
+.btn-default:hover,
+.btn-default:focus {
+  color: #333;
+  text-shadow: none; /* Prevent inheritence from `body` */
+  background-color: #fff;
+  border: 1px solid #fff;
+}
+
+
+input {
+  line-height: 15px;
+  padding: 15px;
+  color: rgb(43, 43, 43);
+}
+input[type="submit"] {
+  padding: 19px;
+}
+/*
+ * Base structure
+ */
+
+html,
+body {
+  height: 100%;
+  background-color: rgb(43, 43, 43);
+  font-family: source-sans-pro, sans-serif;
+}
+body {
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 1px 3px rgba(0,0,0,.5);
+  min-height: 2000px;
+  padding-top: 70px;
+}
+
+#logo {
+  max-width: 250px;
+}
+
+.navbar-brand img {
+  height: 100px;
+  width: 100px;
+}
+
+.portrait {
+  width: 150px;
+  height: 150px;
+  color: white;
+}
+
+.hexagon {
+  @include hexagon(1);
+}
+
+.hexagon-sm {
+  @include hexagon(0.4);
+}
+
+footer {
+  background-color: #111;
+}
+
+footer div {
+  text-align: left;
+}

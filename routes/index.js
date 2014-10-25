@@ -24,11 +24,10 @@ router.get('/', function (req, res) {
         talks.push(talk.value);
         fn();
       }, function () {
-        console.log(talks);
         res.locals = {
           title: 'Node.js Barcelona User Group',
           event: next_event,
-          talks: result.rows
+          talks: talks
         };
         res.render('index');
       });
