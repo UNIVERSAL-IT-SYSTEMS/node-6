@@ -17,7 +17,10 @@ app.set('port', process.env.PORT || 3000);
 app.set('view options', { layout: 'layout' });
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'html');
-app.engine('html', require('hbs').__express);
+app.engine('html', hbs.__express);
+
+hbs.registerPartials(__dirname + '/views/partials');
+hbs.localsAsTemplateData(app);
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));
@@ -48,6 +51,7 @@ app.use(function (req, res, next) {
 // will print stacktrace
 if (app.get('env') === 'development') {
   app.use(function (err, req, res, next) {
+    console.log(err);
     res.status(err.status || 500);
     res.render('error', {
       message: err.message,
