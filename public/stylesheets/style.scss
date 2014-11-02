@@ -91,7 +91,7 @@ h1, h2, h3 {
 .cover-event-date a:hover,
 .cover-event-date a:active {
   text-decoration: none;
-  border-bottom: solid 1px #dcdcdc;
+  border-bottom: solid 2.5px #777;
 }
 .cover-event-date .fa-map-marker {
   font-size: 150%; padding-right: 0.15em;
@@ -100,6 +100,16 @@ h1, h2, h3 {
   font-size: 150%; padding: 0 0.5em; vertical-align: -10%;
 }
 
+
+.subscribe-wrapper {
+  background: #dceaa2;
+  padding: 50px 0;
+}
+
+
+footer {
+  background: #e7e7e7;
+}
 
 /*
 html,
