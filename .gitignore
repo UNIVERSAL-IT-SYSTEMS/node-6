@@ -20,5 +20,6 @@ bower_components
 bower_components/*
 npm-debug.log
 node_modules
+public/.sass-cache
 
 *.sublime-*

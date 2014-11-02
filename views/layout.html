@@ -18,6 +18,57 @@
 </head>
 
 <body>
+
+  <div class="navbar-wrapper">
+    <div class="container">
+      <nav id="nodebcn-navbar" class="navbar navbar-default navbar-static-top" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="/"> <img src="/images/nodebcn_square.jpg" alt="NodeBCN" /></a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                 <li class="active">
+                  <a href="/">Event</a>
+                </li>
+                <li>
+                  <a href="#talks">Talks</a>
+                </li>
+                <li>
+                  <a href="#about">About</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+    </div>
+  </div>
+
+  <div class="cover-wrapper">
+    <div class="container">
+      <div class="cover">
+        <h1 class="cover-title">Barcelona Node.js</h1>
+        <br><br>
+        <h3 class="cover-event-title">{{event.title}}</h3>
+        <h2 class="cover-event-date"><small>
+          <a href="#location">
+            <i class="fa fa-map-marker"></i> {{event.location.address}}
+          </a>
+          <span class="spacer">|</span>
+          {{date}}
+        </small></h2>
+      </div>
+    </div>
+  </div>
+
+
+  <!--
   <div class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container">
       <div class="navbar-header">
@@ -40,7 +91,7 @@
       </div>
     </div>
   </div>
-
+  -->
   <div class="container">
     <div class="col-xs-8 col-xs-offset-2">
       {{{body}}}
@@ -90,5 +141,31 @@
 			</section>
 		</div>
 	</footer>
+
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+
+<script>
+  $(document).ready(function () {
+
+    var menu = $('#nodebcn-navbar');
+    var origOffsetY = menu.offset().top;
+
+    function scroll() {
+      if ($(window).scrollTop() >= origOffsetY) {
+          menu.addClass('navbar-fixed-top');
+          menu.removeClass('navbar-static-top');
+      } else {
+          menu.addClass('navbar-static-top');
+          menu.removeClass('navbar-fixed-top');
+      }
+    }
+
+    document.onscroll = scroll;
+    scroll();    
+
+  });
+</script>
+
 </body>
 </html>

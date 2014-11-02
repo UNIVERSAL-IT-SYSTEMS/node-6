@@ -2,21 +2,21 @@
 
 /*
  * Globals
- */
+ * /
 
-/* Links */
+/* Links * /
 a,
 a:focus,
 a:hover {
   color: #fff;
 }
 
-/* Custom default button */
+/* Custom default button * /
 .btn-default,
 .btn-default:hover,
 .btn-default:focus {
   color: #333;
-  text-shadow: none; /* Prevent inheritence from `body` */
+  text-shadow: none; /* Prevent inheritence from `body` * /
   background-color: #fff;
   border: 1px solid #fff;
 }
@@ -30,10 +30,78 @@ input {
 input[type="submit"] {
   padding: 19px;
 }
-/*
- * Base structure
- */
+*/
 
+@import url(http://fonts.googleapis.com/css?family=Exo:300,700);
+
+// Bootstrap redefinitions
+/////////////////////////////////////////////////////////////////////////////
+
+html,
+body {
+  font-family: source-sans-pro, sans-serif;
+}
+
+h1, h2, h3 {
+  font-family: 'Exo', sans-serif;
+  font-weight: 700;
+
+  small {
+    font-weight: 300;
+  }
+}
+
+
+
+// Base structure
+/////////////////////////////////////////////////////////////////////////////
+
+.navbar-wrapper {
+  position: absolute;
+  top: 30px;
+  text-shadow: 0 1px 3px rgba(0,0,0,.3);
+}
+.navbar-brand img {
+  max-width: 5em;
+}
+
+
+.cover-wrapper {
+  background: #2d2d2d;
+  color: #dcdcdc;
+  padding-top: 300px;
+  padding-bottom: 50px;
+}
+
+.cover {
+  text-align: center;
+}
+
+.cover-event-title {
+  font-size: 120%;
+  margin-bottom: 0;
+}
+.cover-event-date {
+  color: white;
+  margin-top: 0;
+}
+.cover-event-date a {
+  color: inherit;
+}
+.cover-event-date a:hover,
+.cover-event-date a:active {
+  text-decoration: none;
+  border-bottom: solid 1px #dcdcdc;
+}
+.cover-event-date .fa-map-marker {
+  font-size: 150%; padding-right: 0.15em;
+}
+.cover-event-date .spacer {
+  font-size: 150%; padding: 0 0.5em; vertical-align: -10%;
+}
+
+
+/*
 html,
 body {
   height: 100%;
@@ -45,7 +113,6 @@ body {
   text-align: center;
   text-shadow: 0 1px 3px rgba(0,0,0,.5);
   min-height: 2000px;
-  padding-top: 70px;
 }
 
 #logo {
@@ -78,3 +145,4 @@ footer {
 footer div {
   text-align: left;
 }
+*/
