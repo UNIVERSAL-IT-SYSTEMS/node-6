@@ -35,17 +35,166 @@ body {
   font-family: source-sans-pro, sans-serif;
 }
 
-h1, h2, h3 {
+h1, h2, h3, h4, h5 {
   font-family: 'Exo', sans-serif;
   font-weight: 700;
 }
-h1 small, h2 small, h3 small {
+h1 small, h2 small, h3 small, h4 small, h5 small {
   font-weight: 300;
+}
+
+.hexagon {
+  position: relative;
+  width: 150px;
+  left: 40px;
+  height: 86.6px;
+  margin: 43.3px 0;
+  background-color: #88BF43;
+  background-size: auto 173.2051px;
+  background-position: center;
+  display: inline-block;
+  text-align: left;
+  /*counter transform the bg image on the caps*/
+}
+.hexagon.hexagon-center {
+  margin-left: -75px;
+}
+.hexagon.hexagon-tile {
+  margin-left: -37.5px;
+  margin-right: 37.5px;
+  margin-bottom: 0px;
+}
+.hexagon .hexTop,
+.hexagon .hexBottom {
+  position: absolute;
+  z-index: 1;
+  width: 106.07px;
+  height: 106.07px;
+  overflow: hidden;
+  -webkit-transform: scaleY(0.5774) rotate(-45deg);
+  -ms-transform: scaleY(0.5774) rotate(-45deg);
+  transform: scaleY(0.5774) rotate(-45deg);
+  background: inherit;
+  left: 21.97px;
+}
+.hexagon .hexTop:after,
+.hexagon .hexBottom:after {
+  content: "";
+  position: absolute;
+  width: 150px;
+  height: 86.60254px;
+  -webkit-transform: rotate(45deg) scaleY(1.7321) translateY(-43.3013px);
+  -ms-transform: rotate(45deg) scaleY(1.7321) translateY(-43.3013px);
+  transform: rotate(45deg) scaleY(1.7321) translateY(-43.3013px);
+  -webkit-transform-origin: 0 0;
+  -ms-transform-origin: 0 0;
+  transform-origin: 0 0;
+  background: inherit;
+}
+.hexagon .hexTop {
+  top: -53.033px;
+}
+.hexagon .hexTop:after {
+  background-position: center top;
+}
+.hexagon .hexBottom {
+  bottom: -53.033px;
+}
+.hexagon .hexBottom:after {
+  background-position: center bottom;
+}
+.hexagon:after {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0;
+  width: 150px;
+  height: 86.6025px;
+  z-index: 2;
+  background: inherit;
+}
+
+.hexagon-sm {
+  position: relative;
+  width: 60px;
+  left: 16px;
+  height: 34.64px;
+  margin: 17.32px 0;
+  background-color: #88BF43;
+  background-size: auto 69.28204px;
+  background-position: center;
+  display: inline-block;
+  text-align: left;
+  /*counter transform the bg image on the caps*/
+}
+.hexagon-sm.hexagon-center {
+  margin-left: -30px;
+}
+.hexagon-sm.hexagon-tile {
+  margin-left: -15px;
+  margin-right: 15px;
+  margin-bottom: 0px;
+}
+.hexagon-sm .hexTop,
+.hexagon-sm .hexBottom {
+  position: absolute;
+  z-index: 1;
+  width: 42.428px;
+  height: 42.428px;
+  overflow: hidden;
+  -webkit-transform: scaleY(0.5774) rotate(-45deg);
+  -ms-transform: scaleY(0.5774) rotate(-45deg);
+  transform: scaleY(0.5774) rotate(-45deg);
+  background: inherit;
+  left: 8.788px;
+}
+.hexagon-sm .hexTop:after,
+.hexagon-sm .hexBottom:after {
+  content: "";
+  position: absolute;
+  width: 60px;
+  height: 34.64102px;
+  -webkit-transform: rotate(45deg) scaleY(1.7321) translateY(-17.32052px);
+  -ms-transform: rotate(45deg) scaleY(1.7321) translateY(-17.32052px);
+  transform: rotate(45deg) scaleY(1.7321) translateY(-17.32052px);
+  -webkit-transform-origin: 0 0;
+  -ms-transform-origin: 0 0;
+  transform-origin: 0 0;
+  background: inherit;
+}
+.hexagon-sm .hexTop {
+  top: -21.2132px;
+}
+.hexagon-sm .hexTop:after {
+  background-position: center top;
+}
+.hexagon-sm .hexBottom {
+  bottom: -21.2132px;
+}
+.hexagon-sm .hexBottom:after {
+  background-position: center bottom;
+}
+.hexagon-sm:after {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0;
+  width: 60px;
+  height: 34.641px;
+  z-index: 2;
+  background: inherit;
+}
+
+.separator {
+  font-size: 137%;
+  padding: 0 0.5em;
+  vertical-align: bottom;
 }
 
 .navbar-wrapper {
   position: absolute;
   top: 30px;
+  width: 100%;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
@@ -89,15 +238,14 @@ h1 small, h2 small, h3 small {
   padding-right: 0.15em;
 }
 
-.cover-event-date .spacer {
-  font-size: 150%;
-  padding: 0 0.5em;
-  vertical-align: -10%;
-}
-
 .subscribe-wrapper {
   background: #dceaa2;
   padding: 50px 0;
+}
+
+.talks-wrapper {
+  padding: 50px 0;
+  text-align: center;
 }
 
 footer {

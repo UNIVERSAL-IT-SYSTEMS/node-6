@@ -30,7 +30,10 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="/"> <img src="/images/nodebcn_square.jpg" alt="NodeBCN" /></a>
+              <a class="navbar-brand" href="/"> 
+                <img src="/images/nodebcn_square.jpg" alt="NodeBCN" class="hidden-xs" /> 
+                <span class="visible-xs-inline">NodeBCN</span>
+              </a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
@@ -60,7 +63,7 @@
           <a href="#location">
             <i class="fa fa-map-marker"></i> {{event.location.address}}
           </a>
-          <span class="spacer">|</span>
+          <span class="separator">|</span>
           {{date}}
         </small></h2>
       </div>

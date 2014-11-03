@@ -20,6 +20,20 @@ app.engine('html', hbs.__express);
 hbs.registerPartials(__dirname + '/views/partials');
 hbs.localsAsTemplateData(app);
 
+
+hbs.registerHelper("debug", function(optionalValue) {
+  console.log("Current Context");
+  console.log("====================");
+  console.log(JSON.stringify(this, undefined, 2));
+ 
+  if (optionalValue) {
+    console.log("Value");
+    console.log("====================");
+    console.log(JSON.stringify(optionalValue, undefined, 2));
+  }
+});
+
+
 // - middleware configuration
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));

@@ -42,7 +42,7 @@ body {
   font-family: source-sans-pro, sans-serif;
 }
 
-h1, h2, h3 {
+h1, h2, h3, h4, h5 {
   font-family: 'Exo', sans-serif;
   font-weight: 700;
 
@@ -53,12 +53,29 @@ h1, h2, h3 {
 
 
 
+// Shared commons
+/////////////////////////////////////////////////////////////////////////////
+
+.hexagon {
+  @include hexagon(1);
+}
+
+.hexagon-sm {
+  @include hexagon(0.4);
+}
+
+.separator {
+  font-size: 137%; padding: 0 0.5em; vertical-align: bottom;
+}
+
+
 // Base structure
 /////////////////////////////////////////////////////////////////////////////
 
 .navbar-wrapper {
   position: absolute;
   top: 30px;
+  width: 100%;
   text-shadow: 0 1px 3px rgba(0,0,0,.3);
 }
 .navbar-brand img {
@@ -96,14 +113,17 @@ h1, h2, h3 {
 .cover-event-date .fa-map-marker {
   font-size: 150%; padding-right: 0.15em;
 }
-.cover-event-date .spacer {
-  font-size: 150%; padding: 0 0.5em; vertical-align: -10%;
-}
 
 
 .subscribe-wrapper {
   background: #dceaa2;
   padding: 50px 0;
+}
+
+
+.talks-wrapper {
+  padding: 50px 0;
+  text-align: center;
 }
 
 

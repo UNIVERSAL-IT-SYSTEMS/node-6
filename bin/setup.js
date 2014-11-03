@@ -11,7 +11,7 @@ var events = [{
   "title": "First Node.js Barcelona Meeting",
   "date": [
     today.getYear(),
-    today.getMonth(),
+    today.getMonth()+1,
     today.getDate(),
     19,
     30

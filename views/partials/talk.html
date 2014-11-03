@@ -1,4 +1,5 @@
 <article class="col-xs-6 talk">
+
   <header class="speaker">
     {{#if speaker}}
     <a href="/speaker/{{speaker._id}}.html">
@@ -8,24 +9,30 @@
       </div>
     </a>
     <div class="member-profile text-center">
-      <span class="member-name">{{title}}</span>
-      <br />
-      <i class="fa fa-twitter"></i>  <a href="http://twitter.com/{{twitter}}">{{twitter}}</a>
-    </div>
+      <span class="member-name">{{speaker.name}}</span>
+      <span> | </span>
+      <i class="fa fa-twitter"></i>  <a href="http://twitter.com/{{twitter.twitter}}">{{speaker.twitter}}</a>
+    </div>    
     {{else }}
     <div class="hexagon hexagon-center member-portrait" style="background-image: url(/images/you.png);">
       <div class="hexTop"></div>
       <div class="hexBottom"></div>
     </div>
     {{/if}}
+    <br>
   </header>
+
   {{#if title}}
-  <div class="meta">
-    Language: {{language}} | Level: {{level}}
-  </div>
-  <h3>{{title}}</h3>
+  <h4>
+    {{title}}
+    <br><small>Language: {{language}} | Level: {{level}}</small>
+  </h4>
   <p>{{description}}</p>
+
   {{else}}
+
+  <br><br>
   <p><strong>This slot could be yours! Submit your talk now.</strong> You did some crazy stuff with JavaScript? You want to show it to the community? Drop us a line on your topic on <a href="https://twitter.com/bcnjs">Twitter</a> or to <a href="https://plus.google.com/u/0/communities/115705669406517039298">Google+</a>.</p>
+
   {{/if}}
 </article>

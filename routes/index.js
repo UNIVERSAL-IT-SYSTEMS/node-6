@@ -26,7 +26,11 @@ router.get('/', function (req, res) {
         talks.push(talk.value);
         fn();
       }, function () {
-        console.log(util.inspect(next_event, false, null));
+        if (talks.length === 0) {
+          talks = [{}, {}];
+        } else if (talks.length < 2) {
+          talks.push({});
+        }
         res.locals = {
           title: 'Node.js Barcelona User Group',
           event: next_event,
@@ -41,6 +45,10 @@ router.get('/', function (req, res) {
 
 function prettifyDate(dbdate) {
   var date;
+
+  if (!dbdate) {
+    return false;
+  }
 
 
   moment.locale('en', {
