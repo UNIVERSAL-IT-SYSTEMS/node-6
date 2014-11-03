@@ -17,7 +17,7 @@
 
 </head>
 
-<body>
+<body data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
 
   <div class="navbar-wrapper">
     <div class="container">
@@ -38,10 +38,16 @@
             <div id="navbar" class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
                  <li class="active">
-                  <a href="/">Event</a>
+                  <a href="#event">Event</a>
                 </li>
                 <li>
                   <a href="#talks">Talks</a>
+                </li>
+                <li>
+                  <a href="#subscribe">Subscribe</a>
+                </li>
+                <li>
+                  <a href="#location">Location</a>
                 </li>
                 <li>
                   <a href="#about">About</a>
@@ -53,7 +59,7 @@
     </div>
   </div>
 
-  <div class="cover-wrapper">
+  <div class="cover-wrapper" id="event">
     <div class="container">
       <div class="cover">
         <h1 class="cover-title">Barcelona Node.js</h1>
@@ -70,13 +76,13 @@
     </div>
   </div>
 
-  <div class="talks-wrapper">
+  <div class="talks-wrapper" id="talks">
     <div class="container">
       {{> talks}}
     </div>
   </div>
 
-  <div class="subscribe-wrapper">
+  <div class="subscribe-wrapper" id="subscribe">
     <div class="container">
       <div class="col-sm-6 col-sm-offset-3">
         <p>
@@ -98,12 +104,12 @@
     </div>
   </div>
 
-  <div class="location-wrapper">
+  <div class="location-wrapper" id="location">
     <div id="location-map">
     </div>
   </div>
 
-  <div class="about-wrapper">
+  <div class="about-wrapper" id="about">
     <div class="container">
         <h3>Node.js Barcelona</h3>
         <p>Node.js Barcelona is organised by collaborators of BarcelonaJS. BarcelonaJS is a usergroup focused on JavaScript and related topics with regular meetings in Barcelona.</p>
