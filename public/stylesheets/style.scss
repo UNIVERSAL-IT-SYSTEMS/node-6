@@ -127,16 +127,20 @@ h1, h2, h3, h4, h5 {
 }
 
 
+
 .subscribe-wrapper {
   background: #dceaa2;
   padding: 50px 0;
 }
 
 
+
 .talks-wrapper {
   padding: 50px 0;
   text-align: center;
 }
+
+
 
 .location-wrapper {
   padding: 50px 0;
@@ -151,8 +155,22 @@ h1, h2, h3, h4, h5 {
 }
 
 
+.about-wrapper {
+  background: white;
+  padding: 50px 0;
+}
+
+
 footer {
   background: #e7e7e7;
+}
+
+footer h4 {
+  margin-top: 1em;
+  margin-bottom: 0.3em;
+}
+footer ul {
+  margin-top: -0.3em;
 }
 
 /*
