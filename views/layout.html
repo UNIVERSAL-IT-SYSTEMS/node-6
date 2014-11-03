@@ -98,6 +98,11 @@
     </div>
   </div>
 
+  <div class="location-wrapper">
+    <div id="location-map">
+    </div>
+  </div>
+
 
   <footer>
 		<div class="container">
@@ -158,6 +163,34 @@
 
   });
 </script>
+
+<script src="https://maps.googleapis.com/maps/api/js"></script>
+<script>
+  function initialize() {
+    var myLatlng = new google.maps.LatLng(41.396229, 2.194053,15);
+    var mapCanvas = document.getElementById('location-map');
+    var mapOptions = {
+      center: myLatlng,
+      zoom: 16,
+      mapTypeId: google.maps.MapTypeId.ROADMAP,
+      mapTypeControl: false,
+
+    }
+    var map = new google.maps.Map(mapCanvas, mapOptions);
+    var infowindow = new google.maps.InfoWindow({
+      content: '<h5>{{event.location.name}}</h5><p>{{event.location.address}}</p>'
+    });
+    var marker = new google.maps.Marker({
+      position: myLatlng,
+      map: map,
+      title: '{{event.location.name}} | {{event.location.address}}'
+    });
+    infowindow.open(map,marker);
+  }
+  google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+
+
 
 </body>
 </html>
