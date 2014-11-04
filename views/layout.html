@@ -113,7 +113,20 @@
   </div>
 
   <div class="location-wrapper" id="location">
-    <iframe width='100%' height='500px' frameBorder='0' src='https://a.tiles.mapbox.com/v4/bcnjs.k4n9pj3n/attribution,zoompan,zoomwheel,geocoder,share.html?access_token=pk.eyJ1IjoiYmNuanMiLCJhIjoiOXhHUE55ayJ9.92MNNb9uO74n88PcoaPQCA'></iframe>
+    <iframe class="location-map" width='100%' height='500px' frameBorder='0' src='https://a.tiles.mapbox.com/v4/bcnjs.k4n9pj3n/attribution,zoompan,zoomwheel,geocoder,share.html?access_token=pk.eyJ1IjoiYmNuanMiLCJhIjoiOXhHUE55ayJ9.92MNNb9uO74n88PcoaPQCA'></iframe>
+    <div class="container">
+      <div class="col-xs-5 col-xs-offset-7 location-overlay">
+        <br>
+        <h5>{{event.title}}</h5>
+        <br>
+        <h2>
+          {{event.location.name}}
+          <br class="visible-xs-block">
+          <small>{{event.location.address}}</small>
+        </h2>
+        <p>{{date}}</p>
+      </div>
+    </div>
   </div>
 
   <div class="about-wrapper" id="about">
@@ -178,6 +191,20 @@
     scroll();
 
   });
+</script>
+
+<script>
+$(function() {
+  // correct a bug from bootstrap: when ask to hide but it is not init, it shows
+  $('.navbar-collapse').collapse({toggle:false});
+
+  //$('.navbar-collapse').click('li', function() {
+  $(document).click(function() {
+      if ($(document).width() < 768){
+        $('.navbar-collapse').collapse('hide');
+      }
+  });
+});
 </script>
 
 </body>

@@ -1,6 +1,7 @@
 var
   express = require('express'),
   debug = require('debug')('node.barcelonajs.org'),
+  util = require('util'),
   path = require('path'),
   favicon = require('serve-favicon'),
   logger = require('morgan'),
@@ -24,7 +25,7 @@ hbs.localsAsTemplateData(app);
 hbs.registerHelper("debug", function(optionalValue) {
   console.log("Current Context");
   console.log("====================");
-  console.log(JSON.stringify(this, undefined, 2));
+  console.log(util.inspect(this));
  
   if (optionalValue) {
     console.log("Value");
