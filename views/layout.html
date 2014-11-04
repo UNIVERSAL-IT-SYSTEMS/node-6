@@ -30,8 +30,8 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="/"> 
-                <img src="/images/nodebcn_square.jpg" alt="NodeBCN" class="hidden-xs" /> 
+              <a class="navbar-brand" href="/">
+                <img src="/images/nodebcn_square.jpg" alt="NodeBCN" class="hidden-xs" />
                 <span class="visible-xs-inline">NodeBCN</span>
               </a>
             </div>
@@ -62,17 +62,25 @@
   <div class="cover-wrapper" id="event">
     <div class="container">
       <div class="cover">
-        <h1 class="cover-title">Barcelona Node.js</h1>
+        <h1 class="cover-title">Node.js Barcelona</h1>
         <br><br>
         <h3 class="cover-event-title">{{event.title}}</h3>
-        <h2 class="cover-event-date"><small>
-          <a href="#location">
-            <i class="fa fa-map-marker"></i> {{event.location.address}}
-          </a>
-          <span class="separator">|</span>
-          {{date}}
-        </small></h2>
       </div>
+    </div>
+  </div>
+
+  <div class="detail-wrapper" id="event-details">
+    <div class="container">
+      <div class="cover">
+      <h2 class="cover-event-date"><small>
+        Next Event:<br />
+        <a href="#location">
+          <i class="fa fa-map-marker"></i> {{event.location.address}}
+        </a>
+        <span class="separator">|</span>
+        {{date}}
+      </small></h2>
+    </div>
     </div>
   </div>
 
@@ -105,15 +113,13 @@
   </div>
 
   <div class="location-wrapper" id="location">
-    <div id="location-map">
-    </div>
+    <iframe width='100%' height='500px' frameBorder='0' src='https://a.tiles.mapbox.com/v4/bcnjs.k4n9pj3n/attribution,zoompan,zoomwheel,geocoder,share.html?access_token=pk.eyJ1IjoiYmNuanMiLCJhIjoiOXhHUE55ayJ9.92MNNb9uO74n88PcoaPQCA'></iframe>
   </div>
 
   <div class="about-wrapper" id="about">
     <div class="container">
         <h3>Node.js Barcelona</h3>
         <p>Node.js Barcelona is organised by collaborators of BarcelonaJS. BarcelonaJS is a usergroup focused on JavaScript and related topics with regular meetings in Barcelona.</p>
-        <p>We will love to hear about you.</p>
     </div>
   </div>
 
@@ -169,38 +175,10 @@
     }
 
     document.onscroll = scroll;
-    scroll();    
+    scroll();
 
   });
 </script>
-
-<script src="https://maps.googleapis.com/maps/api/js"></script>
-<script>
-  function initialize() {
-    var myLatlng = new google.maps.LatLng(41.396229, 2.194053,15);
-    var mapCanvas = document.getElementById('location-map');
-    var mapOptions = {
-      center: myLatlng,
-      zoom: 16,
-      mapTypeId: google.maps.MapTypeId.ROADMAP,
-      mapTypeControl: false,
-
-    }
-    var map = new google.maps.Map(mapCanvas, mapOptions);
-    var infowindow = new google.maps.InfoWindow({
-      content: '<h5>{{event.location.name}}</h5><p>{{event.location.address}}</p>'
-    });
-    var marker = new google.maps.Marker({
-      position: myLatlng,
-      map: map,
-      title: '{{event.location.name}} | {{event.location.address}}'
-    });
-    infowindow.open(map,marker);
-  }
-  google.maps.event.addDomListener(window, 'load', initialize);
-</script>
-
-
 
 </body>
 </html>
