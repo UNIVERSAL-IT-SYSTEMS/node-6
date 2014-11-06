@@ -11,7 +11,7 @@ var events = [{
   "title": "First Node.js Barcelona Meeting",
   "date": [
     2014,
-    11,
+    10,
     26,
     19,
     00

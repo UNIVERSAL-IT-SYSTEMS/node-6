@@ -63,7 +63,7 @@ function prettifyDate(dbdate) {
   });
 
   date = moment({
-    year: dbdate[0] + 2000 - 100,
+    year: dbdate[0],
     month: dbdate[1],
     day: dbdate[2],
     hour: dbdate[3] || 19, // there no will be meetings at 0h
