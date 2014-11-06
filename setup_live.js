@@ -1,5 +1,5 @@
 var
-  config = require('../common/config'),
+  config = require('./common/config'),
   async = require('async'),
   nano = require('nano')(config.couchdb.host + ':' + config.couchdb.port);
 
