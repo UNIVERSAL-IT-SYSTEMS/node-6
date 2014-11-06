@@ -18,7 +18,7 @@ var events = [{
   ],
   "location": {
     "name": "Itnig",
-    "address": "C/ Alaba 63"
+    "address": "C/ Alaba 61"
   }
 }];
 
@@ -39,7 +39,9 @@ var talks = [{
   "description": "How to architect a cloud IDE, managing dependencies, using storage services (such as Amazon S3) and using MongoDB services (such as MongoLab or MongoHQ)."
 }];
 
-nano.db.destroy('nodebcn', function () {});
+nano.db.destroy('nodebcn', function (error, success) {
+  console.log('destroy', error, success);
+});
 
 nano.db.create('nodebcn', function (error, body) {
   var db = nano.use('nodebcn');
