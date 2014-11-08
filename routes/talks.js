@@ -36,7 +36,7 @@ router.post('/delivery', function (req, res) {
     hmac,
     calculatedSignature,
     payload = req.body,
-    b = new Buffer(payload);
+    b = JSON.stringify(payload);
 
   hmac = crypto.createHmac('sha1', config.github.secret);
   hmac.update(b);
