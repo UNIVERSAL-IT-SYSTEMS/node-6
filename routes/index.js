@@ -17,7 +17,7 @@ router.get('/', function (req, res) {
   db.view('events', 'index', {
     startkey: [today.getYear(), today.getMonth(), today.getDate()]
   }, function (error, result) {
-    if (error) {
+    if (error || result.total_rows === 0) {
       res.locals = {
         title: 'Node.js Barcelona User Group',
         event: {
@@ -27,6 +27,7 @@ router.get('/', function (req, res) {
       };
       res.render('index');
     } else {
+
       next_event = result.rows[0].value;
 
       db.view('talks', 'index', {

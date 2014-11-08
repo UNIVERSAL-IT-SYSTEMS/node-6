@@ -30,6 +30,11 @@ var checkAndCreateEvent = function checkAndCreateEvent(milestone, callback) {
 
       date[3] = parseInt(time[0], 10);
       date[4] = parseInt(time[1], 10);
+
+      if (date[4] === null) {
+        date[4] = 0;
+      }
+
       doc.date = date;
 
       db.insert(doc, function (error, success) {
