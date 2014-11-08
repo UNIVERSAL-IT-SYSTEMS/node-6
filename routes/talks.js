@@ -1,4 +1,6 @@
-var express = require('express'),
+var
+  debug = require('debug')('talks'),
+  express = require('express'),
   config = require('../common/config'),
   nano = require('nano')(config.couchdb.host + ':' + config.couchdb.port),
   db = nano.use(config.couchdb.db),
@@ -11,6 +13,7 @@ var express = require('express'),
 var checkAndCreateEvent = function checkAndCreateEvent(milestone, callback) {
   db.get('event-' + milestone.id, function (error, event) {
     if (error && error.status_code === 409) {
+      debug('event check', error);
       return callback(null, event);
     } else {
       var
@@ -31,6 +34,7 @@ var checkAndCreateEvent = function checkAndCreateEvent(milestone, callback) {
 
       db.insert(doc, function (error, success) {
         if (error) {
+          debug('event insert', error);
           return callback(error);
         } else {
           return callback(null, doc);
@@ -64,7 +68,6 @@ router.post('/delivery', function (req, res) {
   hmac = crypto.createHmac('sha1', config.github.secret);
   hmac.update(JSON.stringify(payload));
   calculatedSignature = 'sha1=' + hmac.digest('hex');
-  console.log(calculatedSignature);
 
   if (req.headers['x-hub-signature'] !== calculatedSignature) {
     res.status(403).send('Forbidden');
@@ -83,6 +86,10 @@ router.post('/delivery', function (req, res) {
         };
 
         parser(payload.issue.body, function (error, result) {
+          if (error) {
+            debug('parser', error);
+          }
+
           doc.description = result.body;
 
           if (result.attributes.language) {
@@ -105,6 +112,7 @@ router.post('/delivery', function (req, res) {
             doc.event = payload.issue.milestone.title;
             checkAndCreateEvent(payload.issue.milestone, function (error, event) {
               if (error) {
+                debug('event', error);
                 res.status(500).send('Couldn\'t store data');
               } else {
                 if (event) {
@@ -113,6 +121,7 @@ router.post('/delivery', function (req, res) {
 
                 db.insert(doc, function (error, success) {
                   if (error) {
+                    debug('talk insert', error);
                     res.status(500).send('Couldn\'t store data');
                   } else {
                     res.status(200).send('ok');
@@ -123,6 +132,7 @@ router.post('/delivery', function (req, res) {
           } else {
             db.insert(doc, function (error, success) {
               if (error) {
+                debug('talk insert', error);
                 res.status(500).send('Couldn\'t store data');
               } else {
                 res.status(200).send('ok');
@@ -137,12 +147,17 @@ router.post('/delivery', function (req, res) {
       if (payload.issue.milestone) {
         checkAndCreateEvent(payload.issue.milestone, function (error, event) {
           if (error) {
+            debug('event', error);
             res.status(500).send('Couldn\'t store data');
           } else {
             db.get('talk-' + payload.issue.id, function (error, doc) {
+              if (error) {
+                debug('talk get', error);
+              }
               doc.event = event._id;
               db.insert(doc, function (error, success) {
                 if (error) {
+                  debug('talk insert', error);
                   res.status(500).send('Couldn\'t store data');
                 } else {
                   res.status(200).send('ok');
