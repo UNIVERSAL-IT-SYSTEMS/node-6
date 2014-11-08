@@ -35,13 +35,15 @@ router.post('/delivery', function (req, res) {
   var
     hmac,
     calculatedSignature,
-    payload = req.body;
-
-  console.log(payload);
+    payload = req.body,
+    b = new Buffer(payload);
 
   hmac = crypto.createHmac('sha1', config.github.secret);
-  hmac.update(payload);
+  hmac.update(b);
   calculatedSignature = hmac.digest('hex');
+
+  console.log(req.headers['x-hub-signature']);
+  console.log('sha1=' + calculatedSignature);
 
   if (req.headers['x-hub-signature'] === calculatedSignature) {
     console.log('all good');

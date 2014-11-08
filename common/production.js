@@ -4,6 +4,6 @@ module.exports = {
     port: 5984
   },
   github: {
-    secret: '1b6d682bb3536fd64df8eb094e303592de6b361e'
+    secret: 'fa37e2264dc44b6b6f793657f068cf9036df9023'
   }
 };
