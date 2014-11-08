@@ -26,7 +26,7 @@ hbs.registerHelper("debug", function(optionalValue) {
   console.log("Current Context");
   console.log("====================");
   console.log(util.inspect(this));
- 
+
   if (optionalValue) {
     console.log("Value");
     console.log("====================");
@@ -35,9 +35,7 @@ hbs.registerHelper("debug", function(optionalValue) {
 });
 
 
-// - middleware configuration
-// uncomment after placing your favicon in /public
-//app.use(favicon(__dirname + '/public/favicon.ico'));
+app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(logger('dev'));
 app.use(require('node-compass')({mode: 'expanded'}));
 app.use(bodyParser.json());

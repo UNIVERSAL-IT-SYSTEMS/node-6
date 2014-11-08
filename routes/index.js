@@ -34,7 +34,7 @@ router.get('/', function (req, res) {
         res.locals = {
           title: 'Node.js Barcelona User Group',
           event: next_event,
-          date: prettifyDate(next_event.date),
+          date: moment(next_event.date).format('ddd, D MM'),
           talks: talks
         };
         res.render('index');
@@ -42,35 +42,5 @@ router.get('/', function (req, res) {
     });
   });
 });
-
-function prettifyDate(dbdate) {
-  var date;
-
-  if (!dbdate) {
-    return false;
-  }
-
-
-  moment.locale('en', {
-      calendar : {
-          lastDay : '[Yesterday at] HH:mm[h]',
-          sameDay : '[Today at] HH:mm[h]',
-          nextDay : '[Tomorrow at] HH:mm[h]',
-          lastWeek : '[last] dddd [at] HH:mm[h]',
-          nextWeek : 'dddd [at] HH:mm[h]',
-          sameElse : 'D. MMMM YYYY [at] HH:mm[h]'
-      }
-  });
-
-  date = moment({
-    year: dbdate[0],
-    month: dbdate[1],
-    day: dbdate[2],
-    hour: dbdate[3] || 19, // there no will be meetings at 0h
-    minute: dbdate[4] || 0,
-  });
-
-  return date.calendar();
-}
 
 module.exports = router;
