@@ -45,7 +45,7 @@ router.get('/', function (req, res) {
           res.locals = {
             title: 'Node.js Barcelona User Group',
             event: next_event,
-            date: moment(next_event.date).format('ddd, D MM'),
+            date: moment(next_event.date).format('ddd, D MMM, HH:mm'),
             talks: talks
           };
           res.render('index');
