@@ -113,7 +113,7 @@ router.post('/delivery', function (req, res) {
             doc.speaker.twitter = result.attributes.twitter;
           }
 
-          if (payload.milestone) {
+          if (payload.issue.milestone) {
             doc.event = payload.issue.milestone.title;
             checkAndCreateEvent(payload.issue.milestone, function (error, event) {
               if (error) {
