@@ -1,11 +1,44 @@
 var express = require('express'),
   config = require('../common/config'),
   nano = require('nano')(config.couchdb.host + ':' + config.couchdb.port),
-  db = nano.use('nodebcn'),
+  db = nano.use(config.couchdb.db),
   async = require('async'),
+  parser = require('markdown-parse'),
   crypto = require('crypto'),
   moment = require('moment'),
   router = express.Router();
+
+var checkAndCreateEvent = function checkAndCreateEvent(milestone, callback) {
+  db.get('event-' + milestone.id, function (error, event) {
+    if (error && error.status_code === 409) {
+      return callback(null, event);
+    } else {
+      var
+        doc = {
+          type: 'event',
+          _id: 'event-' + milestone.id,
+          location: {
+            name: milestone.description.split(';')[1],
+            address: milestone.description.split(';')[2]
+          }
+        },
+        date = moment(milestone.due_on).toArray(),
+        time = milestone.description.split(';')[0].split(':');
+
+      date[3] = parseInt(time[0], 10);
+      date[4] = parseInt(time[1], 10);
+      doc.date = date;
+
+      db.insert(doc, function (error, success) {
+        if (error) {
+          return callback(error);
+        } else {
+          return callback(null, doc);
+        }
+      });
+    }
+  });
+};
 
 /* GET talks page. */
 router.get('/', function (req, res) {
@@ -17,16 +50,7 @@ router.get('/', function (req, res) {
       talks.push(talk.value);
       fn();
     }, function () {
-      if (talks.length === 0) {
-        talks = [{}, {}];
-      } else if (talks.length < 2) {
-        talks.push({});
-      }
-      res.locals = {
-        title: 'All Talks',
-        talks: talks
-      };
-      res.render('talks');
+      res.json(talks);
     });
   });
 });
@@ -35,22 +59,105 @@ router.post('/delivery', function (req, res) {
   var
     hmac,
     calculatedSignature,
-    payload = req.body,
-    b = JSON.stringify(payload);
+    payload = req.body;
 
   hmac = crypto.createHmac('sha1', config.github.secret);
-  hmac.update(b);
-  calculatedSignature = hmac.digest('hex');
+  hmac.update(JSON.stringify(payload));
+  calculatedSignature = 'sha1=' + hmac.digest('hex');
+  console.log(calculatedSignature);
 
-  console.log(req.headers['x-hub-signature']);
-  console.log('sha1=' + calculatedSignature);
-
-  if (req.headers['x-hub-signature'] === calculatedSignature) {
-    console.log('all good');
+  if (req.headers['x-hub-signature'] !== calculatedSignature) {
+    res.status(403).send('Forbidden');
   } else {
-    console.log('not good');
+    if (payload.action === 'labeled') {
+      if (payload.label.name === 'talk proposal') {
+        var doc = {
+          '_id': 'talk-' + payload.issue.id,
+          'type': 'talk',
+          'title': payload.issue.title,
+          'speaker': {
+            'github': payload.issue.user.login,
+            'gravatar': payload.issue.user.gravatar_id,
+            'portrait': payload.issue.user.avatar_url
+          }
+        };
+
+        parser(payload.issue.body, function (error, result) {
+          doc.description = result.body;
+
+          if (result.attributes.language) {
+            doc.language = result.attributes.language;
+          }
+
+          if (result.attributes.level) {
+            doc.level = result.attributes.level;
+          }
+
+          if (result.attributes.tags) {
+            doc.tags = result.attributes.tags;
+          }
+
+          if (result.attributes.twitter) {
+            doc.speaker.twitter = result.attributes.twitter;
+          }
+
+          if (payload.milestone) {
+            doc.event = payload.issue.milestone.title;
+            checkAndCreateEvent(payload.issue.milestone, function (error, event) {
+              if (error) {
+                res.status(500).send('Couldn\'t store data');
+              } else {
+                if (event) {
+                  doc.event = event._id;
+                }
+
+                db.insert(doc, function (error, success) {
+                  if (error) {
+                    res.status(500).send('Couldn\'t store data');
+                  } else {
+                    res.status(200).send('ok');
+                  }
+                });
+              }
+            });
+          } else {
+            db.insert(doc, function (error, success) {
+              if (error) {
+                res.status(500).send('Couldn\'t store data');
+              } else {
+                res.status(200).send('ok');
+              }
+            });
+          }
+        });
+      } else {
+        res.status(200).send('Thanks.');
+      }
+    } else if (payload.action === 'closed') {
+      if (payload.issue.milestone) {
+        checkAndCreateEvent(payload.issue.milestone, function (error, event) {
+          if (error) {
+            res.status(500).send('Couldn\'t store data');
+          } else {
+            db.get('talk-' + payload.issue.id, function (error, doc) {
+              doc.event = event._id;
+              db.insert(doc, function (error, success) {
+                if (error) {
+                  res.status(500).send('Couldn\'t store data');
+                } else {
+                  res.status(200).send('ok');
+                }
+              });
+            });
+          }
+        });
+      } else {
+        res.status(200).send('Thanks.');
+      }
+    } else {
+      res.status(200).send();
+    }
   }
-  res.status(200).send('ok');
 });
 
 module.exports = router;

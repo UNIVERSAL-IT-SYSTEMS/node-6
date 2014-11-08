@@ -69,20 +69,22 @@
     </div>
   </div>
 
-  <div class="detail-wrapper" id="event-details">
-    <div class="container">
-      <div class="cover">
-      <h2 class="cover-event-date"><small>
-        Next Event:<br />
-        <a href="#location">
-          <i class="fa fa-map-marker"></i> {{event.location.address}}
-        </a>
-        <span class="separator">|</span>
-        {{date}}
-      </small></h2>
+  {{#if event.location}}
+    <div class="detail-wrapper" id="event-details">
+      <div class="container">
+        <div class="cover">
+        <h2 class="cover-event-date"><small>
+          Next Event:<br />
+          <a href="#location">
+            <i class="fa fa-map-marker"></i> {{event.location.address}}
+          </a>
+          <span class="separator">|</span>
+          {{date}}
+        </small></h2>
+      </div>
+      </div>
     </div>
-    </div>
-  </div>
+  {{/if}}
 
   <div class="talks-wrapper" id="talks">
     <div class="container">

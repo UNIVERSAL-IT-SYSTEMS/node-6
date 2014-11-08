@@ -1,6 +1,8 @@
 <section class="event">
   <h3>{{event.title}}</h3>
-  <p>{{event.venue}}</p>
+  {{#if event.venue}}
+    <p>{{event.venue}}</p>
+  {{/if}}
 
   <div class="row">
     {{#talks}}

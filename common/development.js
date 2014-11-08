@@ -1,5 +1,6 @@
 module.exports = {
 	couchdb: {
+		db: 'nodebcn-dev',
     host: 'http://127.0.0.1',
     port: 5984
   },

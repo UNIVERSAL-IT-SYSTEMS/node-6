@@ -10,12 +10,7 @@ var
   open = require('./data/open'),
   closed = require('./data/closed'),
   labeled = require('./data/labeled'),
-  header = require('./data/header'),
-  signatures = {
-    labeled: 'sha1=0860913dc2028e49066178f87f5f6b0782d2405e',
-    opened: 'sha1=3ecf9ae43d6f776aba3c74250c2ac0b860968e08',
-    closed: 'sha1=16e3afc8d6df6263ac8d396f695f4b2a59594184'
-  };
+  header = require('./data/header');
 
 describe('GitHub Issue Hook', function () {
   describe('POST /talks/delivery', function () {
@@ -25,7 +20,7 @@ describe('GitHub Issue Hook', function () {
         .set('user-agent', 'GitHub-Hookshot/0687198')
         .set('x-github-event', 'issues')
         .set('x-github-delivery', '1d47d080-6739-11e4-888d-27aabec3ed50')
-        .set('x-hub-signature', signatures.opened)
+        .set('x-hub-signature', 'sha1=7912948d5826da014fb55149708d9a23112af18e')
         .set('content-type', 'application/json')
         .send(open)
         .end(function (error, res) {
@@ -41,7 +36,7 @@ describe('GitHub Issue Hook', function () {
         .set('user-agent', 'GitHub-Hookshot/0687198')
         .set('x-github-event', 'issues')
         .set('x-github-delivery', '1d47d080-6739-11e4-888d-27aabec3ed50')
-        .set('x-hub-signature', signatures.labeled)
+        .set('x-hub-signature', 'sha1=30c18ab307fc0969eca2ba68818ee967cf381930')
         .set('content-type', 'application/json')
         .send(labeled)
         .end(function (error, res) {
@@ -57,12 +52,25 @@ describe('GitHub Issue Hook', function () {
         .set('user-agent', 'GitHub-Hookshot/0687198')
         .set('x-github-event', 'issues')
         .set('x-github-delivery', '1d47d080-6739-11e4-888d-27aabec3ed50')
-        .set('x-hub-signature', signatures.closed)
+        .set('x-hub-signature', 'sha1=a2cba49b8c72d2d1a66e7b3d2c61b42ed133d1d1')
         .set('content-type', 'application/json')
         .send(closed)
         .end(function (error, res) {
           should.exist(res.status);
           res.status.should.equal(200);
+          done();
+        });
+    });
+
+    it('should return one event with one talk', function (done) {
+      request(helper.url)
+        .get('/talks')
+        .set('content-type', 'application/json')
+        .send()
+        .end(function (error, res) {
+          should.exist(res.status);
+          res.status.should.equal(200);
+          console.log(res.body);
           done();
         });
     });
