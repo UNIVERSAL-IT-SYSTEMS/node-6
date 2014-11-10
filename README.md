@@ -26,6 +26,7 @@ Copy, paste and modify the following code into a new [issue](https://github.com/
 
 After you submit the issue, we'll assign it to the next event. If there are any questions, we'll open a comment. Feel free to comment / discuss open issues/talks.
 
+
 # Collaborate
 ## Setting up the server
 
@@ -34,3 +35,12 @@ After you submit the issue, we'll assign it to the next event. If there are any 
 
 ## NodeJS Team
 Node.js Barcelona is brought to you by [@PatrickHeneise](https://twitter.com/PatrickHeneise) and [@drpicox](https://twitter.com/drpicox). If you have any questions, ideas or want to collaborate, write us at node at barcelonajs doh org. You can follow us on Twitter: [@NodeBCN](https://twitter.com/nodebcn).
+
+
+# Code of Conduct
+As for all BarcelonaJS events, find the long version here: [BarcelonaJS Code of Conduct](http://barcelonajs.org/code)
+
+In Short:
+All attendees, speakers, sponsors and volunteers at Node.js Barcelona are required to agree with the following code of conduct. Organizers will enforce this code throughout the event.
+
+BarcelonaJS is dedicated to providing a harassment-free event experience for everyone, regardless of gender, sexual orientation, disability, physical appearance, body size, race, or religion. We do not tolerate harassment of event participants in any form. Sexual language and imagery is not appropriate for any event venue, including talks and workshops. Event participants violating these rules may be sanctioned or expelled from the events.
