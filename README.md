@@ -13,7 +13,7 @@
 3. Modify the issue to match your talk
 4. Submit
 
-
+```
     ---
     level: beginner | advanced | expert
     language: en | es
@@ -26,6 +26,7 @@
     ---
 
     Your awesome talk description.
+```
 
 ## What now?
 
