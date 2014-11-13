@@ -11,8 +11,9 @@ var
   router = express.Router();
 
 var checkAndCreateEvent = function checkAndCreateEvent(milestone, callback) {
+  debug('checkAndCreate', milestone.id);
   db.get('event-' + milestone.id, function (error, event) {
-    if (error && error.status_code === 409) {
+    if (event && event.id) {
       debug('event check', error);
       return callback(null, event);
     } else {
