@@ -13,7 +13,8 @@ var
 var checkAndCreateEvent = function checkAndCreateEvent(milestone, callback) {
   debug('checkAndCreate', milestone.id);
   db.get('event-' + milestone.id, function (error, event) {
-    if (event && event.id) {
+    debug(error, event);
+    if (event && event.title) {
       debug('event check', error);
       return callback(null, event);
     } else {
@@ -78,6 +79,7 @@ router.post('/delivery', function (req, res) {
   if (req.headers['x-hub-signature'] !== calculatedSignature) {
     res.status(403).send('Forbidden');
   } else {
+    debug('delivery', payload.action);
     if (payload.action === 'labeled') {
       if (payload.label.name === 'talk proposal') {
         var doc = {
@@ -137,7 +139,9 @@ router.post('/delivery', function (req, res) {
             });
           } else {
             db.insert(doc, function (error, success) {
-              if (error) {
+              if (error && error.code === 409) {
+                res.status(409).send('Exists');
+              } else if (error) {
                 debug('talk insert', error);
                 res.status(500).send('Couldn\'t store data');
               } else {
