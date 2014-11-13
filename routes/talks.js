@@ -93,6 +93,11 @@ router.post('/delivery', function (req, res) {
           }
         };
 
+        // YAML parser freaks out with @-handles
+        if (payload.issue.body.indexOf('@') > -1) {
+          payload.issue.body = payload.issue.body.replace('@', '');
+        }
+
         parser(payload.issue.body, function (error, result) {
           if (error) {
             debug('parser', error);
