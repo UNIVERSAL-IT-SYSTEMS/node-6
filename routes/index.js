@@ -15,7 +15,7 @@ router.get('/', function (req, res) {
     talks = [];
 
   db.view('events', 'index', {
-    startkey: [today.getYear(), today.getMonth(), today.getDate()]
+    startkey: [today.getFullYear(), today.getMonth(), today.getDate()]
   }, function (error, result) {
     if (error || result.total_rows === 0) {
       res.locals = {
