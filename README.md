@@ -8,7 +8,7 @@
 
 ## Submit a talk
 
-1. [Create a new issue](https://github.com/barcelona-js/node/issues/new?title=Your%20Awesome%20Talk&body=---%0Alevel:%20beginner%20|%20advanced%20|%20expert%0Alanguage:%20en%20|%20es%0Atwitter:%20YourTwitterHandle%0Atags:%0A%20%20-%20hello%0A%20%20-%20node%0A---%0A%0AYour%20awesome%20talk%20description.)
+1. [Create a new issue](https://github.com/barcelona-js/node/issues/new?title=Your%20Awesome%20Talk&body=---%0Alevel:%20beginner%20|%20advanced%20|%20expert%0Alanguage:%20en%20|%20es%0Atwitter:%20YourTwitterHandle%0Amonth:%20February%0A%0A---%0A%0AYour%20awesome%20talk%20description.)
 2. Modify the issue to match your talk
   - the title of your talk as Subject of the issue
   - the level of your talk
