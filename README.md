@@ -1,47 +1,37 @@
 # NodeBCN - NodeJS Barcelona User Group
 [![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/barcelona-js/node?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
+## Talk Format
+
+- Each event has 2-3 speaker slots available.  
+- Each talk is allocated 30 minutes, including Q&A
+
 ## Submit a talk
 
-### The easy way
-1. [click here](https://github.com/barcelona-js/node/issues/new?title=Your%20Awesome%20Talk&body=---%0Alevel:%20beginner%20|%20advanced%20|%20expert%0Alanguage:%20en%20|%20es%0Atwitter:%20YourTwitterHandle%0Atags:%0A%20%20-%20hello%0A%20%20-%20node%0A---%0A%0AYour%20awesome%20talk%20description.)
+1. [Create a new issue](https://github.com/barcelona-js/node/issues/new?title=Your%20Awesome%20Talk&body=---%0Alevel:%20beginner%20|%20advanced%20|%20expert%0Alanguage:%20en%20|%20es%0Atwitter:%20YourTwitterHandle%0Atags:%0A%20%20-%20hello%0A%20%20-%20node%0A---%0A%0AYour%20awesome%20talk%20description.)
 2. Modify the issue to match your talk
+  - the title of your talk as Subject of the issue
+  - the level of your talk
+  - the langauge (en or es)
+  - your Twitter handle, starting with @
+  - the month you want to give this talk
+  - talk description
 3. Submit
 
-### The l33t way
-1. Copy the code below
-2. Create a new [issue](https://github.com/barcelona-js/node/issues/new)
-3. Modify the issue to match your talk
-4. Submit
-
-```
-    ---
-    level: beginner | advanced | expert
-    language: en | es
-    twitter: YourTwitterHandle
-    tags:
-      - hello
-      - node
-      - world
-
-    ---
-
-    Your awesome talk description.
-```
+If you have any questions regarding an event or your talk, please add a comment to your issue and we'll be in touch.
 
 ### What now?
 
-After you submit the issue, we'll assign it to the next event. If there are any questions, we'll open a comment. Feel free to comment / discuss open issues/talks.
+After you submit the issue, we'll assign it to the next event.
+If there are any questions regarding your talk, we'll open a comment.
+Feel free to comment / discuss open issues/talks.
+
+### Confirmation
+- Once your issue is assigned a milestone, it has been approved and confirmed.  
+- Check the milestone date for confirmation of the event date.
 
 
-## Collaborate
-### Setting up the server
-
-    npm install
-    node bin/setup.js
-
-
-### NodeJS Team
+## NodeJS Team
 Node.js Barcelona is brought to you by [@PatrickHeneise](https://twitter.com/PatrickHeneise) and [@drpicox](https://twitter.com/drpicox). If you have any questions, ideas or want to collaborate, write us at node at barcelonajs doh org. You can follow us on Twitter: [@NodeBCN](https://twitter.com/nodebcn).
 
 
