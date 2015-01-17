@@ -30,6 +30,15 @@ Feel free to comment / discuss open issues/talks.
 - Once your issue is assigned a milestone, it has been approved and confirmed.  
 - Check the milestone date for confirmation of the event date.
 
+### After the event
+
+Please add a comment to your talk issue with the following information per line:
+
+    video: http://...
+    slides: http://...
+    code: http://...
+
+We'll add the information then into the archives. Thanks!
 
 ## NodeJS Team
 Node.js Barcelona is brought to you by [@PatrickHeneise](https://twitter.com/PatrickHeneise) and [@drpicox](https://twitter.com/drpicox). If you have any questions, ideas or want to collaborate, write us at node at barcelonajs doh org. You can follow us on Twitter: [@NodeBCN](https://twitter.com/nodebcn).
