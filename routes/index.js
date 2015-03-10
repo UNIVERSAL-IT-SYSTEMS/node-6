@@ -8,7 +8,7 @@ var express = require('express'),
 var util = require('util');
 
 /* GET home page. */
-router.get('/', function (req, res) {
+router.get('/', function(req, res) {
   var
     today = new Date(),
     next_event = {},
@@ -16,8 +16,8 @@ router.get('/', function (req, res) {
 
   db.view('events', 'index', {
     startkey: [today.getFullYear(), today.getMonth(), today.getDate()]
-  }, function (error, result) {
-    if (error || result.total_rows === 0) {
+  }, function(error, result) {
+    if (error || result.total_rows === 0 || result.rows.length <= 0) {
       res.locals = {
         title: 'Node.js Barcelona User Group',
         event: {
@@ -27,16 +27,15 @@ router.get('/', function (req, res) {
       };
       res.render('index');
     } else {
-
       next_event = result.rows[0].value;
 
       db.view('talks', 'index', {
         key: result.rows[0].id
-      }, function (error, result) {
-        async.each(result.rows, function (talk, fn) {
+      }, function(error, result) {
+        async.each(result.rows, function(talk, fn) {
           talks.push(talk.value);
           fn();
-        }, function () {
+        }, function() {
           if (talks.length === 0) {
             talks = [{}, {}];
           } else if (talks.length < 2) {

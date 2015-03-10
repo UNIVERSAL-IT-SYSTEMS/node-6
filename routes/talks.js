@@ -87,11 +87,17 @@ router.post('/delivery', function (req, res) {
           'type': 'talk',
           'title': payload.issue.title,
           'speaker': {
-            'github': payload.issue.user.login,
-            'gravatar': payload.issue.user.gravatar_id,
-            'portrait': payload.issue.user.avatar_url
+            'github': payload.issue.user.login
           }
         };
+
+        if (payload.issue.user.gravatar_id) {
+          doc.gravatar = payload.issue.user.gravatar_id;
+        }
+
+        if (payload.issue.user.avatar_url) {
+          doc.portrait = payload.issue.user.avatar_url;
+        }
 
         // YAML parser freaks out with @-handles
         if (payload.issue.body.indexOf('@') > -1) {
