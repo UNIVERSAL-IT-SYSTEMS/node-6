@@ -41,7 +41,7 @@ Please add a comment to your talk issue with the following information per line:
 We'll add the information then into the archives. Thanks!
 
 ## NodeJS Team
-Node.js Barcelona is brought to you by [@PatrickHeneise](https://twitter.com/PatrickHeneise) and [@drpicox](https://twitter.com/drpicox). If you have any questions, ideas or want to collaborate, write us at node at barcelonajs doh org. You can follow us on Twitter: [@NodeBCN](https://twitter.com/nodebcn).
+Node.js Barcelona is brought to you by [@PatrickHeneise](https://twitter.com/PatrickHeneise). If you have any questions, ideas or want to collaborate, write us at node at barcelonajs doh org. You can follow us on Twitter: [@NodeBCN](https://twitter.com/nodebcn).
 
 
 # Code of Conduct
