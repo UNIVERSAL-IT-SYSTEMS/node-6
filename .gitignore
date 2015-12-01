@@ -17,12 +17,7 @@ pids
 logs
 results
 
-bower_components
-bower_components/*
 npm-debug.log
 node_modules
-public/.sass-cache
-
-public/.sass-cache
-*.sublime-*
-common/production.js
+build
+build/*
