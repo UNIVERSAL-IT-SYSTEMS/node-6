@@ -1,20 +1,53 @@
-# BarcelonaJS
-The Barcelona Original.
+# NodeBCN - NodeJS Barcelona User Group
+[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/barcelona-js/node?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-* Website: http://barcelonajs.org
-* Twitter: http://twitter.com/bcnjs
-* Vimeo: https://vimeo.com/barcelonajs
+## Talk Format
 
-## Format
+- Each event has 2-3 speaker slots available.  
+- Each talk is allocated 30 minutes, including Q&A
 
-- Talks are 30 minutes including Q&A
-- You can speak in Spanish or English (international audience)
-- We'll record the talks and publish them on our [Vimeo channel](https://vimeo.com/barcelonajs)
+## Submit a talk
 
-## How to submit a talk proposal
+1. [Create a new issue](https://github.com/barcelona-js/node/issues/new?title=Your%20Awesome%20Talk&body=---%0Alevel:%20beginner%20|%20advanced%20|%20expert%0Alanguage:%20en%20|%20es%0Atwitter:%20YourTwitterHandle%0Amonth:%20February%0A%0A---%0A%0AYour%20awesome%20talk%20description.)
+2. Modify the issue to match your talk
+  - the title of your talk as Subject of the issue
+  - the level of your talk
+  - the langauge (en or es)
+  - your Twitter handle, starting with @
+  - the month you want to give this talk
+  - talk description
+3. Submit
 
-1. [Create a new talk](https://github.com/BarcelonaJS/barcelonaJS/issues/new?title=Your%20Awesome%20Talk&body=---%0Alevel:%20beginner%20%7C%20advanced%20%7C%20expert%0Alanguage:%20en%20%7C%20es%0Atwitter:%20YourTwitterHandle%0Atags:%0A%20%20-%20hello%0A%20%20-%20node%0A---%0A%0AYour%20awesome%20talk%20description)
-2. fill out the title, your Twitter handle, the level and language of the talk and the description
-3. That's it. :)
+If you have any questions regarding an event or your talk, please add a comment to your issue and we'll be in touch.
 
-    **If you need any help with this process** because you are new to GitHub or git, give us a poke on Twitter. We are happy to help newcomers in any way we can!
+### What now?
+
+After you submit the issue, we'll assign it to the next event.
+If there are any questions regarding your talk, we'll open a comment.
+Feel free to comment / discuss open issues/talks.
+
+### Confirmation
+- Once your issue is assigned a milestone, it has been approved and confirmed.  
+- Check the milestone date for confirmation of the event date.
+
+### After the event
+
+Please add a comment to your talk issue with the following information per line:
+
+    video: http://...
+    slides: http://...
+    code: http://...
+
+We'll add the information then into the archives. Thanks!
+
+## NodeJS Team
+Node.js Barcelona is brought to you by [@PatrickHeneise](https://twitter.com/PatrickHeneise) and [@drpicox](https://twitter.com/drpicox). If you have any questions, ideas or want to collaborate, write us at node at barcelonajs doh org. You can follow us on Twitter: [@NodeBCN](https://twitter.com/nodebcn).
+
+
+# Code of Conduct
+As for all BarcelonaJS events, find the long version here: [BarcelonaJS Code of Conduct](http://barcelonajs.org/code)
+
+In Short:
+All attendees, speakers, sponsors and volunteers at Node.js Barcelona are required to agree with the following code of conduct. Organizers will enforce this code throughout the event.
+
+BarcelonaJS is dedicated to providing a harassment-free event experience for everyone, regardless of gender, sexual orientation, disability, physical appearance, body size, race, or religion. We do not tolerate harassment of event participants in any form. Sexual language and imagery is not appropriate for any event venue, including talks and workshops. Event participants violating these rules may be sanctioned or expelled from the events.
